@@ -1,403 +1,783 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> | Paulo Vilela </title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Paulo Vilela | Portfólio de Business Intelligence</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
- 
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-</head>
-<body>
-    <!-- Inicio Header -->
-    <div class="background" id="port">
-        
-    <header class="conteudo-escondido header-container js-conteudo-mostrar">
-        <div class="header-box">
-            <div class="header-logo-box">
-              
-                <h3 class="header-logo-nome">Portfolio </h3>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#b9defe',
+                            300: '#7cc2fd',
+                            400: '#36a2fa',
+                            500: '#0c85eb',
+                            600: '#0266ca',
+                            700: '#0352a3',
+                            800: '#074685',
+                            900: '#0c3b6e',
+                            950: '#082549',
+                        }
+                    }
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+  </head>
+<body class="bg-[#070b19] text-slate-100 antialiased font-sans selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#070b19]/80 backdrop-blur-md border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <i data-lucide="bar-chart-3" class="w-5 h-5 text-white"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-lg tracking-tight leading-tight">PAULO <span class="text-brand-400">VILELA</span></span>
+                    <span class="text-xs text-slate-400 tracking-wider">BUSINESS INTELLIGENCE</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#sobre" class="hover:text-brand-400 transition-colors">Sobre</a>
+                <a href="#skills" class="hover:text-brand-400 transition-colors">Habilidades</a>
+                <a href="#formacao" class="hover:text-brand-400 transition-colors">Formação</a>
+                <a href="#servicos" class="hover:text-brand-400 transition-colors">Serviços</a>
+                <a href="#projetos" class="hover:text-brand-400 transition-colors">Projetos</a>
+                <a href="#metodo" class="hover:text-brand-400 transition-colors">Como Funciona</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#contato" class="px-5 y-2.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm rounded-lg transition-all shadow-lg shadow-brand-600/20 hover:shadow-brand-500/30 flex items-center gap-2">
+                    <i data-lucide="send" class="w-4 h-4"></i> Contato
+                </a>
             </div>
 
-            <img class="header-menu-rwd-btn" src="img/cardapio.png" alt="Botão abrir e fechar menu mobile">
-            
-            <nav class="header-categorias-box">
-                <ul class="header-categorias">
-                    <li class="header-categoria">
-                        <a id="" class="header-categoria-link" href="#servicos">Serviços</a>
-                    </li>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white" aria-label="Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
 
-                    <li class="header-categoria">
-                        <a id="" class="header-categoria-link" href="#projetos">Projetos</a>
-                    </li>
-
-                    <li class="header-categoria">
-                        <a id="" class="header-categoria-link" href="#formacoes">Formações</a>
-                    </li>
-
-                    <li class="header-categoria">
-                        <a id="" class="header-categoria-link" href="#contatos">Contatos</a>
-                    </li>
-                </ul>
-            </nav> 
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-[#070b19] border-b border-slate-800 px-6 py-6 flex flex-col gap-4 shadow-2xl">
+            <a href="#sobre" class="mobile-link text-lg text-slate-300 hover:text-brand-400">Sobre</a>
+            <a href="#skills" class="mobile-link text-lg text-slate-300 hover:text-brand-400">Habilidades</a>
+            <a href="#formacao" class="mobile-link text-lg text-slate-300 hover:text-brand-400">Formação</a>
+            <a href="#servicos" class="mobile-link text-lg text-slate-300 hover:text-brand-400">Serviços</a>
+            <a href="#projetos" class="mobile-link text-lg text-slate-300 hover:text-brand-400">Projetos</a>
+            <a href="#metodo" class="mobile-link text-lg text-slate-300 hover:text-brand-400">Como Funciona</a>
+            <a href="#contato" class="mobile-link mt-2 text-center py-3 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-lg flex items-center justify-center gap-2">
+                <i data-lucide="send" class="w-4 h-4"></i> Falar Comigo
+            </a>
         </div>
     </header>
-    <!-- Fim Header -->
 
-    <!-- Inicio Home -->
-    <section class="conteudo-escondido home-container js-conteudo-mostrar">
-        <div class="home-box">
-            <div class="home-conteudo">
-                <h4 >Olá, meu nome é </h4>
-                <h1 class="home-titulo">Paulo Vilela</h1>
-  
-                <p class="home-texto">
-                   Sou estudante de Análise e desenvolvimentode sistemas. Busco uma vaga de estágio/Jr na área de desenvolvimento, onde possa aplicar meus conhecimentos acadêmicos em programação e tecnologia da informação, desenvolver minhas habilidades técnicas e aprender com profissionais experientes.Tenho interesse em contribuir para projetos desafiadores, colaborar em equipe e continuar aprendendo e crescendo profissionalmente.
+    <!-- Hero / Intro Section -->
+    <section id="sobre" class="pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden relative">
+        <!-- Background Gradients (UI/UX Glow Effect) -->
+        <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-brand-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+        <div class="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-purple-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Text Content -->
+           
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-500/10 border border-brand-500/30 rounded-full text-brand-400 text-xs font-semibold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span> Buscando Oportunidades de Estágio / Trainee
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-none">
+                    Olá, eu sou <br>
+                    <span class="gradient-text">Paulo Vilela</span>
+                </h1>
+                <p class="text-lg md:text-xl font-medium text-slate-300">
+                     Graduado em Análise e Desenvolvimento de Sistemas focado em <strong class="text-brand-400 font-semibold">Business Intelligence & Engenharia de Dados</strong>.
                 </p>
+                <p class="text-slate-400 text-base md:text-lg max-w-2xl leading-relaxed">
+                    graduando em Engenharia de Software, com experiência administrativa e forte interesse em Business Intelligence. Atuo com organização e análise de informações, Excel e processos administrativos, além de conhecimentos em Power BI, SQL, Java e desenvolvimento de sistemas. Perfil analítico, proativo e orientado por indicadores, buscando oportunidade de Estágio em BI, dados para apoiar decisões estratégicas por meio de dados.
+                </p>
+                
+                <!-- CTAs -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#projetos" class="px-6 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl transition-all shadow-xl shadow-brand-600/20 hover:shadow-brand-500/30 flex items-center gap-2">
+                        Ver Projetos de BI <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/paulo-vilela-18126922b/" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 hover:border-slate-600 font-bold rounded-xl transition-all flex items-center gap-2">
+                        <i data-lucide="linkedin" class="w-5 h-5 text-brand-400"></i> LinkedIn
+                    </a>
+                </div>
 
-                <button class="home-btn">
-                    <a class="home-btn-link" href="https://www.linkedin.com/in/paulo-vilela-18126922b/" target="_blank">Linkedin</a>
-                </button>
-            </div>
-
-            <div class="home-box-img">
-                <img class="home-img" src="img/eu-terno2-removebg-preview.png" alt="paulo">
-            </div>
-        </div>
-    </section> </div>
-    <!-- Fim Home -->
-
-    <!-- Inicio Skills -->
-    <section id="beneficios" class="beneficios-container">
-        <div class="beneficios-box">
-            <h1 class="beneficios-titulo">Minhas Skills</h1>
-
-            <div class="beneficios-conteudo">
-                <div class="beneficios-itens">
-                    <div class="beneficio-item">
-                        <img class="beneficios-img" src="img/html.png" alt="HTML">
-
-                        <div class="beneficios-item-textos">
-                            <h1 class="beneficio-item-subtitulo">HTML5</h1>
-            
-                            <p class="beneficio-item-texto">
-                                Linguagem de marcação utilizada na construção de páginas na Web.
-                            </p>
-                        </div>
+                <!-- Stats/Highlights -->
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800/80 max-w-md mx-auto lg:mx-0">
+                    <div class="text-center lg:text-left">
+                        <span class="block text-2xl md:text-3xl font-extrabold text-white">05+</span>
+                        <span class="text-xs text-slate-400 uppercase tracking-wider">Projetos Práticos</span>
                     </div>
-
-                    <div class="beneficio-item">
-                        <img class="beneficios-img" src="img/css2.png" alt="CSS">
-
-                        <div class="beneficios-item-textos">
-                            <h1 class="beneficio-item-subtitulo">CSS3</h1>
-            
-                            <p class="beneficio-item-texto">
-                                É um mecanismo para adicionar estilos na construção de páginas na Web.
-                            </p>
-                        </div>
+                    <div class="text-center lg:text-left">
+                        <span class="block text-2xl md:text-3xl font-extrabold text-white">100%</span>
+                        <span class="text-xs text-slate-400 uppercase tracking-wider">Foco em Dados</span>
                     </div>
-
-                    <div class="beneficio-item">
-                        <img class="beneficios-img" src="img/javascript.png" alt="JavaScipt">
-
-                        <div class="beneficios-item-textos">
-                            <h1 class="beneficio-item-subtitulo">JavaScript</h1>
-            
-                            <p class="beneficio-item-texto">
-                                É uma linguagem de programação interpretada estruturada, de script em alto nível com tipagem dinâmica fraca e multiparadigma
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="beneficio-item">
-                        <img class="beneficios-img" src="img/figma.png" alt="Figma">
-
-                        <div class="beneficios-item-textos">
-                            <h1 class="beneficio-item-subtitulo">Figma</h1>
-            
-                            <p class="beneficio-item-texto">
-                                Editor gráfico de vetor e prototipagem de projetos de design baseado principalmente no navegador web
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="beneficio-item">
-                        <img class="beneficios-img" src="img/Power_BI.png" alt="Power BI">
-
-                        <div class="beneficios-item-textos">
-                            <h1 class="beneficio-item-subtitulo">Power BI</h1>
-            
-                            <p class="beneficio-item-texto">
-                                É uma coleção de serviços de software, aplicativos e conectores que trabalham juntos para transformar suas fontes de dados não relacionadas em informações coerentes, visualmente envolventes e interativas.
-                            </p>
-                        </div>
+                    <div class="text-center lg:text-left">
+                        <span class="block text-2xl md:text-3xl font-extrabold text-white">ADS</span>
+                        <span class="text-xs text-slate-400 uppercase tracking-wider">Formação</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Fim Skills -->
 
-      <!--FORMÇÕES-->
-    <section id="formacoes" class="resume">
-        <div class="section-title">
-          <h2 class="title-h2">Formações</h2>
-          <p>Segue a baixo meus conhecimentos adquiridos por cursos e formação acadêmica.</p>
-        </div>
-        <div >
-    
-        
-    
-          <div>
-                  <div >
-                    <div >
-                      <div class="resume-item">
-                        <h4>Curso Web Design Completo: Front-End</h4>
-                        <ul>
-                          <li>Udemy</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div >
-                        <div  >
-                          <div class="resume-item">
-                            <h4>Programador Web Completo — Do Zero ao FullStack</h4>
-                            <p><em>Cursando</em></p>
-                            <ul>
-                              <li>Programador Web</li>
-                            </ul>
-                          </div>
-                        </div>
-
-                        <div >
-                            <div  >
-                              <div class="resume-item">
-                                <h4>Curso  de Power Bi </h4>
-                              
-                                <ul>
-                                  <li>Udemy</li>
-                                </ul>
-                              </div>
-                            </div>
-
-
-                            <div >
-                                <div  >
-                                  <div class="resume-item">
-                                    <h4>Curso de Banco de Dados(ORACLE) </h4>
-                                    <ul>
-                                      <li>Udemy</li>
-                                    </ul>
-                                  </div>
-                                </div>
-    
-                 <!---->
-    
-                          <div >
-                            <div  >
-                              <div class="resume-item">
-                                <h4>Tecnologia em Análise e desenvolvimento de Sistemas</h4>
-                                <p><em>Cursando</em></p>
-                                <ul>
-                                  <li>Centro Universitário de Desenvolvimento do Centro Oeste - UNIDESC</li>
-                                </ul>
-                              </div>
-                            </div>
-
-                            
-    
-                            <div >
-                                <div >
-                                  <div class="resume-item">
-                                    <h4>Técnico em Administração</h4>
-                                    <ul>
-                                      <li>Instituto Tecnológico do Estado de Goiás - ITEGO</li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </div> 
-                        </div>
-                    </div>
-      </section>
-    <!--------FIM-FORMACOES------->
-
-
-    <!-- Inicio Servicos -->
-    <section id="servicos" class="servicos-container">
-        <div class="servicos-box">
-            <h1 class="servicos-titulo">Serviços</h1>
-
-            <div class="servicos-itens">
-                <div class="servico-item">
-                    <img class="servico-item-img" src="img/portfolioicon.png" alt="Serviço 1">
-
-                    <h1 class="servico-item-subtitulo">Portfolios</h1>
-
-                    <p class="servico-item-texto">
-                        Destaque-se no mercado com um portfolio online personalizado que mostra suas habilidades, projetos e experiência de maneira cativante e profissional.
-                    </p>
-                </div>
-
-                <div class="servico-item">
-                    <img class="servico-item-img" src="img/banco.png" alt="Serviço 2">
-
-                    <h1 class="servico-item-subtitulo">Sites Institucionais</h1>
-
-                    <p class="servico-item-texto">
-                        Transmita confiança e profissionalismo com um site institucional que represente fielmente a essência e os valores da sua empresa. 
-                    </p>
-                </div>
-
-                <div class="servico-item">
-                    <img class="servico-item-img" src="img/estatico.png" alt="Serviço 3">
-
-                    <h1 class="servico-item-subtitulo">Sites Estáticos</h1>
-
-                    <p class="servico-item-texto">
-                        Dê vida à sua presença online com um site estático que impressiona desde o primeiro clique. Perfeito para projetos que não exigem atualizações frequentes de conteúdo.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Fim Servicos -->
-
-    <!-- Incio Portfolio -->
-    <section id="projetos" class="portfolio-container">
-        <div class="portfolio-box">
-            <h1 class="portfolio-titulo">Projetos</h1>
-
-        <!----
-            <p class="portfolio-texto">
-                Logo a baixo esta destacado uns dos meus projeotos
-            </p>-->
-
-            <div class="portfolio-itens">
-               
-
-                <a class="portfolio-item" href="https://dev-vilela.github.io/Atlantica-Outlet/" target="_blank">
-                    <img class="portfolio-item-img" src="img/projeto-tenis.png" alt="Modelo 2">
-                </a>
-
-                <a class="portfolio-item" href="https://dev-vilela.github.io/Curso-OnebitCode/" target="_blank">
-                    <img class="portfolio-item-img" src="img/PetLife.png" alt="Modelo 3">
-                </a>
-
-                <a class="portfolio-item" href="#" target="_blank">
-                    <img class="portfolio-item-img" src="img/RH.png" alt="Modelo 4">
-                </a>
-
-                <a class="portfolio-item" href="#" target="_blank">
-                    <img class="portfolio-item-img" src="img/LOGISTICA.png" alt="Modelo 5">
-                </a>
-
-                <a class="portfolio-item" href="#" target="_blank">
-                    <img class="portfolio-item-img" src="img/PRODUCAO.png" alt="Modelo 5">
-                </a>
-
-                <a class="portfolio-item" href="#" target="_blank">
-                    <img class="portfolio-item-img" src="img/DARSHBOARD-PRODUÇÃO2.png" alt="Modelo 5">
-                </a>
-
-                <div class="github-link">
-              
-                    <a href="https://github.com/dev-vilela" target="_blank" >Repositórios no github</a>
-                  </div>
-            </div>
-        </div>
-    </section>
-    <!-- Fim Portfolio -->
-
-    <!-- Inicio WorkFlow -->
-    <section id="workflow" class="workflow-container">
-        <div class="workflow-box">
-            <h1 class="workflow-titulo">Como Funciona?</h1>
-
-            <div class="workflow-itens">
-                <div class="workflow-item">
-                    <span class="workflow-item-numero">01</span>
-
-                    <h1 class="workflow-item-subtitulo">Pedido</h1>
-
-                    <p class="workflow-item-texto">
-                        Entre em contato solicitando o desenvolvimento do seu projeto.
-                    </p>
-                </div>
-
-                <div class="workflow-item">
-                    <span class="workflow-item-numero">02</span>
-
-                    <h1 class="workflow-item-subtitulo">Desenvolvimento</h1>
-
-                    <p class="workflow-item-texto">
-                        Seu portfolio é desenvolvido com base em suas preferências e requisitos.
-                    </p>
-                </div>
-
-                <div class="workflow-item">
-                    <span class="workflow-item-numero">03</span>
-
-                    <h1 class="workflow-item-subtitulo">Preview</h1>
-
-                    <p class="workflow-item-texto">
-                        Você recebe uma prévia final do projeto para revisão e feedback.
-                    </p>
-                </div>
-
-                <div class="workflow-item">
-                    <span class="workflow-item-numero">04</span>
-
-                    <h1 class="workflow-item-subtitulo">Publicação</h1>
-
-                    <p class="workflow-item-texto">
-                        Após sua aprovação final, seu portfolio é preparado e publicado.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>  
-    <!-- Fim Workflow -->
-
-    <!-- Inicio Contato -->
-    <section id="contatos" class="contato-container">
-        <div class="contato-box">
-            <h1 class="contato-titulo">Contatos</h1>
-
+            <!-- Profile Image Area -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+                    <!-- Techy Background circles -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-600/20 to-purple-500/20 rounded-full animate-spin [animation-duration:30s]"></div>
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-brand-500/10 to-transparent rounded-full blur-xl"></div>
+                    
+                    <!-- Main Image frame (With fallback using user description of formal attire) -->
+                    <div class="absolute inset-4 rounded-full overflow-hidden bg-slate-900 border-4 border-slate-800 flex items-center justify-center">
           
-                <div class="contato-itens">
-                    <a class="contatos-item" href="//api.whatsapp.com/send?phone=5561995700392" target="_blank">
-                        <img class="contatos-img" src="img/whatsapp.png" alt="Telefone">
-                        <h3 class="contatos-subtitulo">WhatsApp</h3>
-                        <p class="contatos-info">(61) 99570-0392</p>
-                    </a>
-    
-                    <a class="contatos-item" >
-                        <img class="contatos-img" src="img/gmail.png" alt="E-mail">
-                        <h3 class="contatos-subtitulo">E-mail</h3>
-                        <p class="contatos-info">paulofurtado320@gmail.com</p>
-                    </a>
+                        <img src="img/eu32.jpeg" alt="Paulo Vilela"  class="w-full h-full object-cover mt-3"> 
+                        
+                    </div>
+
+                    <!-- Floating Metrics Box (Analyst style) -->
+                    <div class="absolute -bottom-2 -right-2 bg-slate-900/90 border border-slate-700 p-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                            <i data-lucide="trending-up" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400 font-medium">Power BI Expert</p>
+                            <p class="text-sm font-bold text-white">Foco Analítico</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Fim Contato -->
 
-    <!-- Inicio Footer -->
-    <footer class="footer-container">
-        <div class="footer-box">
-            Copyright © 2024 - desenvolvido por Paulo Vilela
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 md:py-28 bg-[#090f23]/60 relative border-y border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand-400 uppercase tracking-widest">Minhas Habilidades</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white">Stack de Dados & Tecnologia</h3>
+                <p class="text-slate-400">O conjunto de ferramentas e tecnologias que utilizo diariamente para modelar, processar, analisar e apresentar dados brutos de forma estruturada.</p>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Power BI Card (Featured for BI roles) -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between lg:col-span-2 border-brand-500/20 shadow-lg shadow-brand-950/10">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500">
+                            <i data-lucide="bar-chart-4" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Power BI</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Criação de dashboards dinâmicos, desenvolvimento de métricas complexas em **DAX**, modelagem de dados (Star Schema/Snowflake) e conexão com diversas fontes de dados.
+                        </p>
+                    </div>
+                    <div class="mt-6 flex gap-2 flex-wrap">
+                        <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-md">DAX</span>
+                        <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-md">Power Query</span>
+                        <!-- <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-md">M Language</span> -->
+                    </div>
+                </div>
+
+                <!-- SQL Card -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400">
+                            <i data-lucide="database" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Banco de Dados & SQL</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Escrita de queries estruturadas, filtros avançados, junções complexas (JOINs), agregações e manipulação inteligente de dados organizados.
+                        </p>
+                    </div>
+                    <div class="mt-6 flex gap-2 flex-wrap">
+                        <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-md">PostgreSQL</span>
+                        <span class="px-2.5 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-md">Queries</span>
+                    </div>
+                </div>
+
+                <!-- Javascript / Tech Card -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-500">
+                            <i data-lucide="code-2" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">JavaScript (JS)</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Linguagem de programação multiparadigma. Essencial para integrações, customização de soluções web e manipulação lógica de dados dinâmicos.
+                        </p>
+                    </div>
+                    <div class="mt-6 flex gap-2 flex-wrap">
+                        <span class="px-2.5 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-semibold rounded-md">Lógica</span>
+                        <span class="px-2.5 py-1 bg-yellow-500/10 text-yellow-400 text-xs font-semibold rounded-md">Web Dev</span>
+                    </div>
+                </div>
+
+                <!-- UI/UX & Design -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
+                            <i data-lucide="layout-grid" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Figma & UI/UX</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Desenho de wireframes, escolha de paleta de cores apropriada e criação de layouts funcionais de dashboards antes da implementação prática.
+                        </p>
+                    </div>
+                    <div class="mt-6 flex gap-2 flex-wrap">
+                        <span class="px-2.5 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-md">Design</span>
+                        <span class="px-2.5 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-md">Storytelling</span>
+                    </div>
+                </div>
+
+                <!-- HTML5 & CSS3 Card -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between lg:col-span-2">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500">
+                            <i data-lucide="globe" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Desenvolvimento Front-End (HTML5 / CSS3)</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Criação de interfaces estruturadas e responsivas de alto nível. O conhecimento front-end permite integrar relatórios de BI no ecossistema web das organizações perfeitamente.
+                        </p>
+                    </div>
+                    <div class="mt-6 flex gap-2 flex-wrap">
+                        <span class="px-2.5 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-md">CSS3</span>
+                        <span class="px-2.5 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-md">HTML5</span>
+                        <span class="px-2.5 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-md">Tailwind</span>
+                    </div>
+                </div>
+
+                <!-- Python / Pandas (Highly valued in BI) -->
+                <div class="glass-card glass-card-hover p-6 rounded-2xl flex flex-col justify-between lg:col-span-3">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                            <i data-lucide="binary" class="w-7 h-7"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Python para Análise de Dados</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Conhecimento e aplicação de scripts Python para manipulação, higienização e carregamento de conjuntos de dados massivos. Familiaridade com bibliotecas essenciais para engenharia rápida de dados.
+                        </p>
+                    </div>
+                    <div class="mt-6 flex gap-2 flex-wrap">
+                        <span class="px-2.5 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-md">Pandas</span>
+                        <span class="px-2.5 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-md">NumPy</span>
+                        <span class="px-2.5 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-md">ETL Automation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic and Certifications Section -->
+    <section id="formacao" class="py-20 md:py-28 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Left Title Content -->
+                <div class="lg:col-span-4 lg:sticky lg:top-28 space-y-4">
+                    <h2 class="text-xs font-bold text-brand-400 uppercase tracking-widest">Jornada Acadêmica</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-white">Formação & Certificações</h3>
+                    <p class="text-slate-400 leading-relaxed">Busco sempre manter meus conhecimentos atualizados por meio de cursos intensivos e formação acadêmica sólida para garantir ótimas práticas analíticas.</p>
+                    
+                    <div class="p-4 bg-brand-500/10 border border-brand-500/20 rounded-2xl flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-brand-500 flex items-center justify-center text-white font-extrabold">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xs text-slate-300 font-semibold">6+ Formações Estratégicas</span>
+                    </div>
+                </div>
+
+                <!-- Right Timeline Content -->
+                <div class="lg:col-span-8 space-y-8 relative before:absolute before:left-4 md:before:left-6 before:top-4 before:bottom-4 before:w-[2px] before:bg-slate-800">
+                    
+                    <!-- Formacao Item 1 -->
+                    <div class="relative pl-12 md:pl-16 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-2.5 md:left-4.5 top-1.5 w-4 h-4 rounded-full bg-brand-500 border-4 border-[#070b19] group-hover:scale-125 transition-transform duration-300"></div>
+                        <div class="space-y-2">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-brand-500/10 text-brand-400 text-xs font-bold rounded">Concluido</span>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">Tecnologia em Análise e Desenvolvimento de Sistemas</h4>
+                            <p class="text-sm text-slate-400">Unidesc</p>
+                            <p class="text-xs text-slate-500">Formação de nível superior com foco em algoritmos, modelagem de sistemas, arquitetura de software e engenharia lógica.</p>
+                        </div>
+                    </div>
+
+                        <div class="relative pl-12 md:pl-16 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-2.5 md:left-4.5 top-1.5 w-4 h-4 rounded-full bg-brand-500 border-4 border-[#070b19] group-hover:scale-125 transition-transform duration-300"></div>
+                        <div class="space-y-2">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-brand-500/10 text-brand-400 text-xs font-bold rounded">Cursando</span>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">Bacharel em Engenharia de Software</h4>
+                            <p class="text-sm text-slate-400">Estácio</p>
+                                                   </div>
+                    </div>
+
+                    <!-- Formacao Item 2 -->
+                    <div class="relative pl-12 md:pl-16 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-2.5 md:left-4.5 top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-[#070b19] group-hover:bg-brand-500 group-hover:scale-125 transition-transform duration-300"></div>
+                        <div class="space-y-2">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-800 text-slate-400 text-xs font-bold rounded">Certificado</span>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">Introdução ao Power BI</h4>
+                            <p class="text-sm text-slate-400">Udemy</p>
+                            <p class="text-xs text-slate-500">Capacitação sólida em conceitos básicos de modelagem dimensional de dados, ETL, conexões com Excel/Web e desenvolvimento visual de painéis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Formacao Item 3 -->
+                    <div class="relative pl-12 md:pl-16 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-2.5 md:left-4.5 top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-[#070b19] group-hover:bg-brand-500 group-hover:scale-125 transition-transform duration-300"></div>
+                        <div class="space-y-2">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-800 text-slate-400 text-xs font-bold rounded">Certificado</span>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">Programação Web Completo</h4>
+                            <p class="text-sm text-slate-400">Programa & Mais</p>
+                            <p class="text-xs text-slate-500">Desenvolvimento de habilidades essenciais de frontend, estruturas HTML5, manipulação dinâmica com JS e estilização sofisticada para soluções na web.</p>
+                        </div>
+                    </div>
+
+                    <!-- Formacao Item 4 -->
+                    <div class="relative pl-12 md:pl-16 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-2.5 md:left-4.5 top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-[#070b19] group-hover:bg-brand-500 group-hover:scale-125 transition-transform duration-300"></div>
+                        <div class="space-y-2">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-800 text-slate-400 text-xs font-bold rounded">Certificado</span>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">Curso de Banco de Dados (SQL)</h4>
+                            <p class="text-sm text-slate-400">Udemy</p>
+                            <p class="text-xs text-slate-500">Destaque em modelagem de dados relacional, consultas, junções eficientes, funções nativas e otimização de bancos de dados para reporting de negócios.</p>
+                        </div>
+                    </div>
+
+                    <!-- Formacao Item 5 -->
+                    <div class="relative pl-12 md:pl-16 group">
+                        <!-- Dot Indicator -->
+                        <div class="absolute left-2.5 md:left-4.5 top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-[#070b19] group-hover:bg-brand-500 group-hover:scale-125 transition-transform duration-300"></div>
+                        <div class="space-y-2">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-slate-800 text-slate-400 text-xs font-bold rounded">Certificado</span>
+                            <h4 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">Criação de Painéis de BI</h4>
+                            <p class="text-sm text-slate-400">Udemy</p>
+                            <p class="text-xs text-slate-500">Focado em técnicas avançadas de design e visualização de dados, layout funcional focado no usuário final e design centrado em tomadas de decisões rápidas.</p>
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-20 md:py-28 bg-[#090f23]/60 relative border-y border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand-400 uppercase tracking-widest">O que eu faço</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white">Serviços e Soluções Oferecidas</h3>
+                <p class="text-slate-400">Como desenvolvedor focado em dados, ofereço soluções estruturadas para transformar dados em ferramentas de tomada de decisão.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Servico 1: Portfolio/Dashboards -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl flex flex-col justify-between">
+                    <div class="space-y-5">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-500/10 flex items-center justify-center text-brand-400">
+                            <i data-lucide="layout-dashboard" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Portfólios & Dashboards</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Criação e estruturação visual de painéis analíticos interativos. Traduzo as necessidades do seu negócio em relatórios que facilitam a leitura rápida de métricas chaves e o controle de performance.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800 mt-6">
+                        <span class="text-xs text-brand-400 font-bold tracking-wider flex items-center gap-1">Power BI • UX/UI • DAX</span>
+                    </div>
+                </div>
+
+                <!-- Servico 2: Institucionais -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl flex flex-col justify-between">
+                    <div class="space-y-5">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                            <i data-lucide="building-2" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Sistemas Institucionais</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Desenvolvimento de landing pages profissionais e sites institucionais para empresas que buscam estabelecer uma forte presença online e comunicar seus serviços e diferenciais de forma moderna.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800 mt-6">
+                        <span class="text-xs text-indigo-400 font-bold tracking-wider flex items-center gap-1">React • TailwindCSs • SpringBoot</span>
+                    </div>
+                </div>
+
+                <!-- Servico 3: Sites Estáticos -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl flex flex-col justify-between">
+                    <div class="space-y-5">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                            <i data-lucide="file-code-2" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">Sites Estáticos Práticos</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Criação de landing pages rápidas e páginas promocionais com alta performance. Soluções focadas em SEO técnico, acessibilidade e designs otimizados para máxima conversão de leads e clientes.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-slate-800 mt-6">
+                        <span class="text-xs text-emerald-400 font-bold tracking-wider flex items-center gap-1">Performance • SEO • UI Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projetos" class="py-20 md:py-28 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand-400 uppercase tracking-widest">Portfólio Prático</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white">Projetos em Destaque</h3>
+                <p class="text-slate-400">Aplicações práticas e Dashboards interativos simulando cenários do mundo corporativo real. Navegue pelas visualizações criadas para impulsionar tomadas de decisões.</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Projeto 1: Dashboard Vendas (BI) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group border border-slate-800/80 hover:border-brand-500/30 transition-all duration-300">
+                    <!-- Project Simulated Graphic / Image Container -->
+                    <div class="h-48 bg-slate-950 p-4 flex flex-col justify-between relative overflow-hidden border-b border-slate-800/80">
+                        <div class="flex items-center justify-between z-10">
+                            <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-lg flex items-center gap-1">
+                                <i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i> Dashboard BI
+                            </span>
+                            <span class="text-xs text-slate-500 font-mono">v1.2</span>
+                        </div>
+                        <!-- Mini simulated dashboard using SVG graphs for elegant visual representation -->
+                        <div class="space-y-3 z-10 my-auto">
+                            <div class="grid grid-cols-3 gap-2">
+                           <img src="img/PRODUCAO.png" alt="">
+                            </div>
+                            <!-- Mini Sparkline Graph -->
+                            <div class="h-10 w-full flex items-end gap-1 px-1">
+                            
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-600/5 to-transparent pointer-events-none"></div>
+                    </div>
+                    
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                         <a href="https://app.powerbi.com/groups/me/reports/f242c504-47de-443f-975a-5d38f4d9f0c6/ReportSection?ctid=a3412cb2-980c-4bc9-adf5-87b748c06675&experience=power-bi"> <h4 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Dashboard de Logística e Controle de Estoque</h4> </a>
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                              Desenvolvimento de dashboard gerencial para monitoramento de indicadores logísticos.
+Criação de KPIs de faturamento, valor em estoque, ruptura de estoque e giro de estoque.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 text-xs rounded">Power BI</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 text-xs rounded">DAX</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 text-xs rounded">Power Query</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 2: Dashboard Financeiro (BI) -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group border border-slate-800/80 hover:border-brand-500/30 transition-all duration-300">
+                    <!-- Project Simulated Graphic / Image Container -->
+                    <div class="h-48 bg-slate-950 p-4 flex flex-col justify-between relative overflow-hidden border-b border-slate-800/80">
+                        <div class="flex items-center justify-between z-10">
+                            <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-lg flex items-center gap-1">
+                                <i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i> Dashboard BI
+                            </span>
+                            <span class="text-xs text-slate-500 font-mono">v2.0</span>
+                        </div>
+                        <!-- Mini simulated dashboard using SVG graphs for elegant visual representation -->
+                        <div class="space-y-3 z-10 my-auto">
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="bg-slate-900/80 p-2 rounded border border-slate-800">
+                                    <span class="text-[9px] text-slate-400 block">Fluxo de Caixa</span>
+                                    <span class="text-xs font-bold text-brand-400">R$ 480k</span>
+                                </div>
+                                <div class="bg-slate-900/80 p-2 rounded border border-slate-800">
+                                    <span class="text-[9px] text-slate-400 block">Inadimplência</span>
+                                    <span class="text-xs font-bold text-red-400">1.8%</span>
+                                </div>
+                            </div>
+                            <!-- Mini Circle Chart simulated -->
+                            <div class="flex items-center gap-3 bg-slate-900/60 p-1.5 rounded border border-slate-800/40">
+                                <div class="w-6 h-6 rounded-full border-4 border-l-brand-500 border-t-brand-500 border-b-brand-300 border-r-slate-800 animate-spin [animation-duration:10s]"></div>
+                                <span class="text-[10px] text-slate-400 font-medium">Margem Operacional de 42%</span>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-emerald-600/5 to-transparent pointer-events-none"></div>
+                    </div>
+                    
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                          <a href="https://app.powerbi.com/groups/me/reports/559b1cc9-909b-4f4a-9d79-89941b4bb8be/ReportSection?ctid=a3412cb2-980c-4bc9-adf5-87b748c06675&experience=power-bi"><h4 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Dashboard de Produção Industrial</h4></a>  
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                              Desenvolvimento de painel para acompanhamento dos indicadores de produção.
+
+Monitoramento da produção mensal, produtividade, qualidade e horas produtivas.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 text-xs rounded">Power BI</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 text-xs rounded">ETL</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 text-xs rounded">Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 3: Web App de Análise de Dados -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col group border border-slate-800/80 hover:border-brand-500/30 transition-all duration-300">
+                    <!-- Project Simulated Graphic / Image Container -->
+                    <div class="h-48 bg-slate-950 p-4 flex flex-col justify-between relative overflow-hidden border-b border-slate-800/80">
+                        <div class="flex items-center justify-between z-10">
+                            <span class="px-2.5 py-1 bg-indigo-500/10 text-indigo-400 text-xs font-bold rounded-lg flex items-center gap-1">
+                                <i data-lucide="code" class="w-3.5 h-3.5"></i> Dashboard BI
+                            </span>
+                            <span class="text-xs text-slate-500 font-mono">v1.0</span>
+                        </div>
+                        <!-- Mini simulated UI/HTML dashboard mock -->
+                        <div class="space-y-2 z-10 my-auto">
+                            <div class="bg-slate-900/80 p-2 rounded border border-slate-800 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                                </div>
+                                <span class="text-[9px] text-slate-400 font-mono">localhost:3000</span>
+                            </div>
+                            <div class="h-8 bg-slate-900/60 rounded border border-slate-800 flex items-center px-2 justify-between">
+                                <div class="w-12 h-2 bg-slate-700 rounded-full"></div>
+                                <div class="w-6 h-4 bg-brand-600 rounded"></div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/5 to-transparent pointer-events-none"></div>
+                    </div>
+                    
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h4 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Dashboard Torre de Controle (OEE)</h4>
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                         Desenvolvimento de dashboard executivo para acompanhamento da eficiência operacional (OEE). Monitoramento dos indicadores de Disponibilidade, Performance e Qualidade. Criação de rankings de rejeições, ocorrências operacionais e análise temporal da produção.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 text-xs rounded">HTML5</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 text-xs rounded">Tailwind CSS</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 text-xs rounded">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Red Button Center CTA from original image context, adapted for elegance -->
+            <div class="mt-16 text-center">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-500 text-white font-extrabold rounded-full transition-all shadow-lg shadow-red-600/20 hover:shadow-red-500/30 transform hover:-translate-y-1">
+                    <i data-lucide="github" class="w-5 h-5"></i> Repositórios no GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works (Como funciona?) -->
+    <section id="metodo" class="py-20 md:py-28 bg-[#090f23]/60 border-t border-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand-400 uppercase tracking-widest">Processo de Trabalho</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-white">Como Funciona o meu Trabalho?</h3>
+                <p class="text-slate-400">Entenda a metodologia lógica e estruturada que sigo para construir dashboards consistentes, desde a reunião de requisitos até a entrega final.</p>
+            </div>
+
+            <!-- Steps Grid (Process optimized from original 4 steps) -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Step 1: Pedido -->
+                <div class="relative p-6 bg-slate-900/50 border border-slate-800 rounded-2xl flex flex-col items-center text-center space-y-4">
+                    <div class="absolute -top-4 left-6 px-3 py-1 bg-brand-600 text-white text-xs font-extrabold rounded-lg">01</div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400">
+                        <i data-lucide="clipboard-list" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Pedido / Requisitos</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Entendimento inicial das necessidades do negócio, identificação das principais perguntas a serem respondidas pelos dados e fontes de origem.
+                    </p>
+                </div>
+
+                <!-- Step 2: Desenvolvimento -->
+                <div class="relative p-6 bg-slate-900/50 border border-slate-800 rounded-2xl flex flex-col items-center text-center space-y-4">
+                    <div class="absolute -top-4 left-6 px-3 py-1 bg-brand-600 text-white text-xs font-extrabold rounded-lg">02</div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                        <i data-lucide="cog" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Desenvolvimento / ETL</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Extração, modelagem (Star Schema), tratamento estruturado dos dados históricos e escrita dos cálculos lógicos em DAX e SQL.
+                    </p>
+                </div>
+
+                <!-- Step 3: Preview -->
+                <div class="relative p-6 bg-slate-900/50 border border-slate-800 rounded-2xl flex flex-col items-center text-center space-y-4">
+                    <div class="absolute -top-4 left-6 px-3 py-1 bg-brand-600 text-white text-xs font-extrabold rounded-lg">03</div>
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
+                        <i data-lucide="eye" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Preview & Homologação</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Apresentação dos protótipos de BI para validação das regras de negócios com o usuário, garantindo a exatidão absoluta de cada métrica.
+                    </p>
+                </div>
+
+                <!-- Step 4: Publicacao -->
+                <div class="relative p-6 bg-slate-900/50 border border-slate-800 rounded-2xl flex flex-col items-center text-center space-y-4">
+                    <div class="absolute -top-4 left-6 px-3 py-1 bg-brand-600 text-white text-xs font-extrabold rounded-lg">04</div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                        <i data-lucide="rocket" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Publicação & Entrega</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Deploy final do dashboard no Power BI Service corporativo ou hospedagem de código, com atualizações automáticas agendadas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Area -->
+    <section id="contato" class="py-20 md:py-28 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Info Left Side -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-xs font-bold text-brand-400 uppercase tracking-widest">Contato Imediato</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-white">Vamos Iniciar um Projeto de Dados?</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Buscando contratação imediata para **Estágios ou programas de Trainee** em BI/Engenharia de Dados. Fique à vontade para me mandar uma mensagem a qualquer momento!
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <!-- Whatsapp Contact Link -->
+                        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-4 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded-2xl transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="message-square" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-400 font-medium uppercase tracking-wider">WhatsApp</span>
+                                <span class="text-sm font-bold text-white">(61) 99570-0392</span>
+                            </div>
+                        </a>
+
+                        <!-- Email Contact Link -->
+                        <a href="mailto:paulovilela@gmail.com" class="flex items-center gap-4 p-4 bg-brand-500/10 hover:bg-brand-500/20 border border-brand-500/30 rounded-2xl transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-400 font-medium uppercase tracking-wider">E-mail Comercial</span>
+                                <span class="text-sm font-bold text-white">paulofurtado320@gmail.com</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form Right Side -->
+                <div class="lg:col-span-7">
+                    <form onsubmit="event.preventDefault();" class="p-8 bg-slate-900/40 border border-slate-800/80 rounded-3xl space-y-6 backdrop-blur-md">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="form-name" class="text-xs font-semibold text-slate-400">Seu Nome completo</label>
+                                <input type="text" id="form-name" placeholder="Ex: Roberto Silva" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none text-white rounded-xl text-sm transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="form-company" class="text-xs font-semibold text-slate-400">Empresa / Recrutador</label>
+                                <input type="text" id="form-company" placeholder="Ex: Tech Soluções" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none text-white rounded-xl text-sm transition-all">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="form-subject" class="text-xs font-semibold text-slate-400">Assunto</label>
+                            <input type="text" id="form-subject" placeholder="Ex: Vaga de Estágio em BI" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none text-white rounded-xl text-sm transition-all">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="form-message" class="text-xs font-semibold text-slate-400">Mensagem</label>
+                            <textarea id="form-message" rows="4" placeholder="Escreva sua proposta de contratação ou dúvida..." class="w-full px-4 py-3 bg-slate-950 border border-slate-800 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 outline-none text-white rounded-xl text-sm transition-all resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl shadow-lg shadow-brand-600/20 hover:shadow-brand-500/30 transition-all flex items-center justify-center gap-2">
+                            Enviar Mensagem <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-[#040813] border-t border-slate-900 text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-brand-400">
+                    <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                </div>
+                <span class="font-bold text-white text-base">PAULO <span class="text-brand-400">VILELA</span></span>
+            </div>
+
+            <p class="text-center md:text-left text-xs text-slate-400">
+                Copyright © 2026 • Desenvolvido por Paulo Vilela 
+            </p>
+
+            <div class="flex items-center gap-4">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="LinkedIn">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" aria-label="GitHub">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+            </div>
         </div>
     </footer>
-    <a class="gotopbtn" href="#port"><i class="fas fa-arrow-up"></i></a>
-    <!-- Fim Footer -->
 
-    <!-- Javascipt -->
-    <script src="js/index.js"></script>
+    <!-- Mobile Menu Handler & Icons Activation Script -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
